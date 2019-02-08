@@ -8,4 +8,12 @@ Gustavo Evangelista's Git hub
     </body>
 </html>
 <script>
+    console.log(_spPageContextInfo.userId);
+    //assume we have a client context called context.
+var web = context.get_web();
+var user = web.get_currentUser(); //must load this to access info.
+context.load(user);
+context.executeQueryAsync(function(){
+    alert("User is: " + user.get_title()); //there is also id, email, so this is pretty useful.
+}, function(){alert(":(");});
 </script>
